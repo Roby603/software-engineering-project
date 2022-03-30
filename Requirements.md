@@ -93,31 +93,52 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 
 ## Functional Requirements
 
-| ID | Description |
-|:---|:------------|
-| F1 | Create user (username, pwd) |
-| F2 | Set-Up account |
-| F2.1 | Setup account of manager of company |
-| F2.2 | Setup account of manager of suppliers |
-| F3| Manage items |
-| F3.1 | Keep track of position of the items |
-| F3.2 | Handle internal orders |
-| F4 | Quality check |
-| F4.1 | Test items with different criteria |
-| F4.2 | Reject defected items |
-| F5 | Manage request (orders?) (Create, Update and Delete) |
-| F5.1 | Reorder short supply items |
+| FR1   | Manage Orders |
+| FR1.1 | Show every Supplier's catalogue (based on the to-be-refilled item) |
+| FR1.2 | Show the list of items in the Warehouse |
+| FR1.3 | Place a new order |
+| FR1.4 | Cancel an order |
+| FR1.5 | Add an item to the order |
+| FR1.6 | Remove an item to the order |
+| FR1.7 | Show an order |
+| FR1.8 | Confirm the reception of an internal order |
+
+| FR2   | Manage Warehouse                                  |
+| FR2.1 | Track the position of every item                  |
+| FR2.2 | Update quantity of an item                        |
+| FR2.3 | Track remaining free space for every type of item |
+| FR2.4 | Add an item                                       |
+| FR2.5 | Remove an item                                    |
+
+| FR3   | Manage Account      |
+| FR3.1 | Add account         |
+| FR3.2 | Remove account      |
+| FR3.3 | Update account      |
+| FR3.4 | Modify privileges   |
+
+| FR4   | Manage Quality                                  |
+| FR4.1 | Show the list of possible tests for every item  |
+| FR4.2 | Select the result of a test                     |
+| FR4.3 | Reject items that didn't pass one or many tests |
+
+| FR5   | Manage Supplier Catalogue   |
+| FR5.1 | Add an item                 |
+| FR5.2 | Remove an item              |
+| FR5.3 | Show items in the catalogue |
+| FR5.4 | Update an item's price      |
 
 ## Non Functional Requirements
 
-\<Describe constraints on functional requirements>
-
-| ID        | Type (efficiency, reliability, ..)           | Description  | Refers to |
-| ------------- |:-------------:| :-----:| -----:|
-|  NFR1     |   |  | |
-|  NFR2     | |  | |
-|  NFR3     | | | |
-| NFRx .. | | | | 
+| ID    | Type        | Description  | Refers to |
+|:------|:-----------:|:-------------| ----------|
+| NFR1 | Privacy      | Users' passwords must not be saved in the system | FR3 |
+| NFR2 | Privacy      | The data of a customer should not be disclosed outside the application | All FR |
+| NFR3 | Usability    | The user must learn how to use the application in less than 20 minutes | All FR |
+| NFR3 | Portability |The application should be accessed by Chrome (version 81 and more recent), and Safari (version 13 and more recent) (this covers around 80% of installed browsers); and from the operating systems where these browsers are available (Android, IoS, Windows, MacOS, Unix). As for devices, the application should be usable on smartphones (portrait) and PCs (landscape). | All FR |
+| NFR4 | Performance  | The Suppliers' list must be retrieved in less than 1 seconds | FR1.2 |
+| NFR2 | Performance  | All functions should complete in leass than 0.5 second | All FR |
+| NFR5 | Localisation | Decimal numbers use . (dot) as decimal separator | All FR |
+| NFR6 | Domain       | Currency is Euro |
 
 
 # Use case diagram and use cases
