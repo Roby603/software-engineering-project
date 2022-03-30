@@ -48,19 +48,20 @@ EZWH (EaSy WareHouse) is a software application to support the management of a w
 
 | Stakeholder Name | Description |
 |:-----|:------------|
-| Companies | (Retailers is a synonim?) |
-| Suppliers |
-| Manager | (of Company and of Suppliers) |
-| Administrator | |
-| Quality Office | |
-| Physical WareHouse | (maybe Renting Company?) |
-| Organizational unit | |
-| Competitors | |
-| StartUp Owner | |
-| Startup Financer | |
-| Cloud Service (Database) | |
-| Payment service | |
-| Transportation Company | |
+| Companies | Need the component produced by the suppliers; "Retailers" is a synonym |
+| Suppliers | Produce the components needed by the Companies |
+| Warehouse Manager | Starts order requests towards the suppliers|
+| Supplier Manager | Handles the incoming order requests |
+| Administrator | Manages the addition of Companies to the software |
+| Warehouse Workers | Employees that take care of the correct position and quantity update of the items  |
+| Quality Office | Performs various test on random items in the different orders |
+| Organizational unit | Different branch of a Company; it can start an internal order procedure |
+| Competitors | Any company that produces Warehouse Management applications|
+| StartUp Owner | The founder of the StartUp |
+| Startup Financer | The financer that believes in thee appllication |
+| Cloud Service | Service to store data and perform calculations on cloud |
+| Payment service | Service to allow payement of orders |
+| Transportation Service | Service to deliver the orders |
 
 # Context Diagram and interfaces
 
@@ -71,11 +72,15 @@ EZWH (EaSy WareHouse) is a software application to support the management of a w
 
 | Actor | Logical Interface | Physical Interface |
 |:------|:------------------|:-------------------|
-| Manager | GUI | M&K | Ambiguo: da dividere tra Company Manager e Supplier Manager
+| Warehouse Manager | GUI | M&K |
+| Supplier Manager | GUI | M&K |
 | Administrator | GUI | M&K |
+| Quality Office | GUI | M&K |
+| Organizational Unit | GUI | M&K |
+| Warehouse Workers | GUI | Tablet |
 | Payment Service | Internet Connection | API |
 | Cloud Service | Internet Connection | API |
-| Transportation Company | Phone Calls or Internet Connection | Phone or M&K |
+| Transportation Service | Internet Connection | M&K |
 
 # Stories and personas
 Mario, 30, is the manager of a big company's warehouse, handling hundresds of items per day. He has always managed the position of the goods by himself, leading to some management problems during the years. Also the re-fill process is handled by him, directly calling to different suppliers asking for availabilities of items. He would really like to use an application which can automatize this entire handling process. 

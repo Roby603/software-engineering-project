@@ -1,14 +1,30 @@
 @startuml ContextDiagram
+left to right direction
+skinparam packagestyle rect
 
+' Actors
+actor "Warehouse Manager" as WarehouseManager
+actor "Retailer Manager" as RetailerManager
+actor "Quality Office" as QualityOffice
+actor "Warehouse Worker" as WarehouseWorker
+actor Administrator
+actor "Transportation Service" as TransportationService
+actor "Payment Service" as PayementService
+actor "Cloud Service" as CloudService
+actor "Organizational Unit" as OrganizationalUnit
+
+' Associations
+WarehouseManager --|> WarehouseWorker
 rectangle System{
-	usecase "EzWH" as EZWareHouse
+	(EZWH) -- QualityOffice
+	(EZWH) -- TransportationService
+	(EZWH) -- PayementService
+	(EZWH) -- CloudService
+	(EZWH) -- WarehouseWorker
+	(EZWH) -- RetailerManager
+	(EZWH) -- WarehouseWorker
+	(EZWH) -- Administrator
+	(EZWH) -- OrganizationalUnit
+
 }
-
-User <|-- Manager
-User <|-- Administrator
-User --- EZWareHouse
-
-PaymentService --- EZWareHouse
-CloudService --- EZWareHouse
-TransportationCompany --- EZWareHouse
 @enduml
