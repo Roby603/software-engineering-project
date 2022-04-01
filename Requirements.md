@@ -48,21 +48,21 @@ EZWH (EaSy WareHouse) is a software application to support the management of a w
 
 | Stakeholder Name | Description |
 |:-----|:------------|
-| Companies | Need the component produced by the suppliers; "Retailers" is a synonym |
-| Suppliers | Produce the components needed by the Companies |
-| Warehouse Manager | Starts order requests towards the suppliers|
-| Supplier Manager | Handles the incoming order requests |
+| Companies | Establishment made of several departments whose main objective is to sell items; "Retailers" is a synonym |
+| Suppliers | The emobodiement of an entity that provides a certain product to a company; "Manufacturers" could be an  example of a supplier |
+| Warehouse Manager | Person in charge of making order requests to the suppliers and supervising the work of the warehouse's workers|
+| Supplier Manager | Person in charge of handling the order requests received|
 | Administrator | Manages the addition of Companies to the software |
-| Warehouse Workers | Employees that take care of the correct position and quantity update of the items  |
-| Quality Office | Performs various test on random items in the different orders |
+| Warehouse Workers | Employees that execute the directions of the manager(item unpacking,item positioning,quantity check)  |
+| Quality Office | Check the quality of the product upon arrival to the warehouse |
 | Organizational unit | Different branch or department of a Company |
 | Organizational unit Manager | The head of a organizational unit that can start an internal order procedure |
 | Competitors | Any company that produces Warehouse Management applications|
-| StartUp Owner | The founder of the StartUp |
-| Startup Financer | The financer that believes in thee appllication |
+| StartUp Owner | The founder/creator of the startup company "EZWH" |
+| Startup Financer | Group or individuals funding the startup "EZWH" |
 | Cloud Service | Service to store data and perform calculations on cloud |
-| Payment service | Service to allow payement of orders |
-| Transportation Service | Service to deliver the orders |
+| Payment service | Service to allow payment of orders |
+| Transportation Service | Service that takes care of the external and internal orders |
 
 # Context Diagram and interfaces
 
