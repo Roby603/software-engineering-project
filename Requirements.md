@@ -31,7 +31,7 @@ Version: 0.0
 - [Deployment diagram](#deployment-diagram)
 
 # Informal description
-Medium companies and retailers need a simple application to manage the relationship with suppliers and the inventory of physical items stocked in a physical warehouse. 
+Medium companies and retailers need a simple application to= manage the relationship with suppliers and the inventory of physical items stocked in a physical warehouse. 
 The warehouse is supervised by a manager, who supervises the availability of items. When a certain item is in short supply, the manager issues an order to a supplier. In general the same item can be purchased by many suppliers. The warehouse keeps a list of possible suppliers per item. 
 
 After some time the items ordered to a supplier are received. The items must be quality checked and stored in specific positions in the warehouse. The quality check is performed by specific roles (quality office), who apply specific tests for item (different items are tested differently). Possibly the tests are not made at all, or made randomly on some of the items received. If an item does not pass a quality test it may be rejected and sent back to the supplier. 
@@ -55,7 +55,8 @@ EZWH (EaSy WareHouse) is a software application to support the management of a w
 | Administrator | Manages the addition of Companies to the software |
 | Warehouse Workers | Employees that take care of the correct position and quantity update of the items  |
 | Quality Office | Performs various test on random items in the different orders |
-| Organizational unit | Different branch of a Company; it can start an internal order procedure |
+| Organizational unit | Different branch or department of a Company |
+| Organizational unit Manager | The head of a organizational unit that can start an internal order procedure |
 | Competitors | Any company that produces Warehouse Management applications|
 | StartUp Owner | The founder of the StartUp |
 | Startup Financer | The financer that believes in thee appllication |
@@ -76,7 +77,7 @@ EZWH (EaSy WareHouse) is a software application to support the management of a w
 | Supplier Manager | GUI | M&K |
 | Administrator | GUI | M&K |
 | Quality Office | GUI | M&K |
-| Organizational Unit | GUI | M&K |
+| Organizational Unit Manager | GUI | M&K |
 | Warehouse Workers | GUI | Tablet |
 | Payment Service | Internet Connection | API |
 | Cloud Service | Internet Connection | API |
@@ -94,19 +95,28 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 ## Functional Requirements
 
 | FR1   | Manage Orders |
-| FR1.1 | Show every Supplier's catalogue (based on the to-be-refilled item) |
-| FR1.2 | Show the list of items in the Warehouse |
-| FR1.3 | Place a new order |
-| FR1.4 | Cancel an order |
-| FR1.5 | Add an item to the order |
-| FR1.6 | Remove an item to the order |
-| FR1.7 | Show an order |
-| FR1.8 | Confirm the reception of an internal order |
+| FR1.1 |Manage External orders  |
+| FR1.1.1 | Display the Supplier's list  |
+| FR1.1.2| Show all the items in the catalogue of a specific supplier |
+| FR1.1.3 | Place new external order |
+| FR1.1.4 | Cancel the external order |
+| FR1.1.5 | Add an item to the external order |
+| FR1.1.6 | Remove an item from the external order |
+| FR1.1.7 | Display an external order |
+| FR1.2 | Manage Internal order |
+| FR1.2.1 | Display the list of items in the Warehouse |
+| FR1.2.2 | Place a new internal order |
+| FR1.2.3 | Cancel an interal order |
+| FR1.2.4 | Add an item to the interal order |
+| FR1.2.5 | Remove an item to the interal order |
+| FR1.2.6 | Display an interal order |
+| FR1.2.7 | Manage the status of the order |
+| FR1.2.8 | Manage transportation method |
 
 | FR2   | Manage Warehouse                                  |
 | FR2.1 | Track the position of every item                  |
 | FR2.2 | Update quantity of an item                        |
-| FR2.3 | Track remaining free space for every type of item |
+| FR2.3 | Track remaining free space for every item         |
 | FR2.4 | Add an item                                       |
 | FR2.5 | Remove an item                                    |
 
@@ -117,15 +127,26 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 | FR3.4 | Modify privileges   |
 
 | FR4   | Manage Quality                                  |
-| FR4.1 | Show the list of possible tests for every item  |
-| FR4.2 | Select the result of a test                     |
-| FR4.3 | Reject items that didn't pass one or many tests |
+| FR4.1 | Manage a test                    |
+| FR4.1.1 | Add a test with its description                   |
+| FR4.1.2 | Update the test's description                   |
+| FR4.1.3 | Delete a test                    |
+| FR4.2 | Manage order quality check                     |
+| FR4.2.1 | Display orders in the staging area  |
+| FR4.2.2 | Display the list of possible tests for every item inside the order  |
+| FR4.2.3 | Add a test to the item                     |
+| FR4.2.4 | Remove a test from the item                     |
+| FR4.2.5 | Report the result of a test                     |
+| FR4.2.6 | Ignore an item                     |
+| FR4.2.7 | Ignore an order                     |
+
+
 
 | FR5   | Manage Supplier Catalogue   |
 | FR5.1 | Add an item                 |
 | FR5.2 | Remove an item              |
 | FR5.3 | Show items in the catalogue |
-| FR5.4 | Update an item's price      |
+| FR5.4 | Update an item's attribute      |
 
 ## Non Functional Requirements
 
