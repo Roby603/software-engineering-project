@@ -94,24 +94,24 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 
 ## Functional Requirements
 
-| FR1   | Manage Orders |
-| FR1.1 |Manage External orders  |
-| FR1.1.1 | Display the Supplier's list  |
-| FR1.1.2| Show all the items in the catalogue of a specific supplier |
-| FR1.1.3 | Place new external order |
-| FR1.1.4 | Cancel the external order |
-| FR1.1.5 | Add an item to the external order |
-| FR1.1.6 | Remove an item from the external order |
-| FR1.1.7 | Display an external order |
-| FR1.2 | Manage Internal order |
-| FR1.2.1 | Display the list of items in the Warehouse |
-| FR1.2.2 | Place a new internal order |
-| FR1.2.3 | Cancel an interal order |
-| FR1.2.4 | Add an item to the interal order |
-| FR1.2.5 | Remove an item to the interal order |
-| FR1.2.6 | Display an interal order |
-| FR1.2.7 | Manage the status of the order |
-| FR1.2.8 | Manage transportation method |
+| FR1     | Manage Orders                                              |
+| FR1.1   | Manage External orders                                     |
+| FR1.1.1 | Display the Supplier's list                                |
+| FR1.1.2 | Show all the items in the catalogue of a specific supplier |
+| FR1.1.3 | Place new external order                                   |
+| FR1.1.4 | Cancel the external order                                  |
+| FR1.1.5 | Add an item to the external order                          |
+| FR1.1.6 | Remove an item from the external order                     |
+| FR1.1.7 | Display an external order                                  |
+| FR1.2   | Manage Internal order                                      |
+| FR1.2.1 | Display the list of items in the Warehouse                 |
+| FR1.2.2 | Place a new internal order                                 |
+| FR1.2.3 | Cancel an interal order                                    |
+| FR1.2.4 | Add an item to the interal order                           |
+| FR1.2.5 | Remove an item to the interal order                        |
+| FR1.2.6 | Display an interal order                                   |
+| FR1.2.7 | Manage the status of the order                             |
+| FR1.2.8 | Manage transportation method                               |
 
 | FR2   | Manage Warehouse                                  |
 | FR2.1 | Track the position of every item                  |
@@ -126,27 +126,29 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 | FR3.3 | Update account      |
 | FR3.4 | Modify privileges   |
 
-| FR4   | Manage Quality                                  |
-| FR4.1 | Manage a test                    |
-| FR4.1.1 | Add a test with its description                   |
-| FR4.1.2 | Update the test's description                   |
-| FR4.1.3 | Delete a test                    |
-| FR4.2 | Manage order quality check                     |
-| FR4.2.1 | Display orders in the staging area  |
-| FR4.2.2 | Display the list of possible tests for every item inside the order  |
-| FR4.2.3 | Add a test to the item                     |
-| FR4.2.4 | Remove a test from the item                     |
-| FR4.2.5 | Report the result of a test                     |
-| FR4.2.6 | Ignore an item                     |
-| FR4.2.7 | Ignore an order                     |
-
-
+| FR4     | Manage Quality                                                     |
+| FR4.1   | Manage a test                                                      |
+| FR4.1.1 | Add a test with its description                                    |
+| FR4.1.2 | Update the test's description                                      |
+| FR4.1.3 | Delete a test                                                      |
+| FR4.2   | Manage order quality check                                         |
+| FR4.2.1 | Display orders in the staging area                                 |
+| FR4.2.2 | Display the list of possible tests for every item inside the order |
+| FR4.2.3 | Add a test to the item                                             |
+| FR4.2.4 | Remove a test from the item                                        |
+| FR4.2.5 | Report the result of a test                                        |
+| FR4.2.5 | Report the result of an order                                      |
+| FR4.2.7 | Ignore an order                                                    |
 
 | FR5   | Manage Supplier Catalogue   |
 | FR5.1 | Add an item                 |
 | FR5.2 | Remove an item              |
 | FR5.3 | Show items in the catalogue |
-| FR5.4 | Update an item's attribute      |
+| FR5.4 | Update an item's attribute  |
+
+| FR6   | Manage Authentication |
+| FR6.1 | Login                 |
+| FR6.1 | Logout                |
 
 ## Non Functional Requirements
 
@@ -168,46 +170,455 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 ## Use case diagram
 \<define here UML Use case diagram UCD summarizing all use cases, and their relationships>
 
+## Manage Catalogue
 
-\<next describe here each use case in the UCD>
-### Use case 1, UC1
-| Actors Involved        |  |
-| ------------- |:-------------:| 
-|  Precondition     | \<Boolean expression, must evaluate to true before the UC can start> |
-|  Post condition     | \<Boolean expression, must evaluate to true after UC is finished> |
-|  Nominal Scenario     | \<Textual description of actions executed by the UC> |
-|  Variants     | \<other normal executions> |
-|  Exceptions     | \<exceptions, errors > |
+### Use case 1, UC1 - Manage catalogue
 
-##### Scenario 1.1 
+| Actors Involved  | Supplier Manager |
+|:-----------------|:----------------:|
+| Precondition     |  |
+| Post condition   |  |
+| Nominal Scenario | SupplierManager creates a new item type IT populating its fields |
+| Variants         | IT exists already, SupplierManager modifies its fields           |
+| Exception        | IT is assigned to an occupied location                           |
 
-\<describe here scenarios instances of UC1>
+##### Scenario 1-1, Create a new item type request
 
-\<a scenario is a sequence of steps that corresponds to a particular execution of one use case>
+| Scenario       | Create a new item type request |
+|:---------------|:-------------------:| 
+| Precondition   | Supplier Manager SM exists and is logged in |
+| Post condition | Item Type Request ITR exists and is in OPEN state|
+|                | 
+| Step#          | Description  |
+| 1              | SM opens a new "Add item type" request |
+| 1              | SM inserts new item type description |
+| 2              | SM inserts new item type name |
+| 6              | SM confirms the entered data |
+| 4              | ITR is recorded in the system in OPEN state |
 
-\<a scenario is a more formal description of a story>
+##### Scenario 1-2, Offer item type X 
 
-\<only relevant scenarios should be described>
+| Scenario        | Offer item type X |
+|:----------------|:-------------------:| 
+|  Precondition   | Supplier Manager SM exists and is logged in |
+|  Post condition | X into the catalogue C |
+| Step#           | Description  |
+|  1              | SM selects an item type in the list to be offered|
+|  3              | SM inserts new item price per unit |
+|  4              | SM inserts new item notes |
+|  6              | SM confirms the entered data |
 
-| Scenario 1.1 | |
-| ------------- |:-------------:| 
-|  Precondition     | \<Boolean expression, must evaluate to true before the scenario can start> |
-|  Post condition     | \<Boolean expression, must evaluate to true after scenario is finished> |
-| Step#        | Description  |
-|  1     |  |  
-|  2     |  |
-|  ...     |  |
+##### Scenario 1-3
 
-##### Scenario 1.2
+| Scenario       | Modify item type price per unit |
+|:---------------|:----------------------------------:| 
+| Precondition   | Supplier Manager SM exists and is logged in |
+|                | Item type X exists |
+| Post condition | X.pricePerUnit = new Price |
+| Step#          | Description  |
+| 1              | SM searches X via name |
+| 2              | SM selects X's record |
+| 3              | SM inserts a new price > 0 |
+| 4              | SM confirms the update |
+| 5              | X is updated |
 
-##### Scenario 1.x
 
-### Use case 2, UC2
-..
+## Order Management
 
-### Use case x, UCx
-..
+### Use case 2, UC2 - Manage Orders
 
+| Actors Involved  | Warhouse Manager |
+|:---------------- |:-------------:|
+| Precondition     | Warehouse Manager WM has an account |
+|                  | Warehouse Manager WM is authenticated |
+| Post condition   | Order O has been issued |
+| Nominal Scenario | WM creates a new order O with a list of item type ITs. WM sends order to a selected supplier and pays the price visible in the supplier's catalogue. When order arrives to the warehouse, WM records order arrival. |
+| Variants         | ... |
+| Exceptions       | Not enough money in balance to send order |
+|                  | An item I has no location assigned, because there's no space |
+|                  | The item types in O comes form different Suppliers |
+
+##### Scenario 2-1, Nominal Scenario
+
+| Scenario       |  Order issued                |
+|:---------------|:----------------------------:| 
+| Precondition   | Warehouse Manager WS exists and is logged in |
+| Post condition | Order O exists and is in ISSUED state        |
+| Step#          | Description  |
+| 1              | WS creates order O |
+| 2              | For each item type T to be added |
+| 2              |   WS adds T to O |
+| 2              |   WS fills quantity of T to be ordered |
+| 2              |   WS picks the location L |
+| 3              | O is recorded in the system in ISSUED state |
+
+##### Scenario 2-2, Record order O arrival
+
+| Scenario       | Record order O arrival |
+|:---------------|:-------------:| 
+| Precondition   | Warehouse Manager WS exists and is logged in |
+|                | Order O exists and is in SHIPPED state  |
+| Post condition | O is in TESTING state  |
+| Step#          | Description   |
+|  1             | O arrives to the staging area               |
+|  2             | WS records O arrival in the system          |
+|  4             | O is updated in the system in TESTING state |
+
+##### Scenario 2-3, Record order O testing process as completed
+
+| Scenario       | Record order O testing process as completed  |
+|:---------------|:--------------------------------------------:| 
+| Precondition   | Warehouse Manager WS exists and is logged in |
+|                | Order O exists and is in TESTING or IGNORED state |
+| Post condition | O is in COMPLETED state  |
+| Step#          | Description   |
+|  1             | O arrives to the warehouse             |
+|  2             | WS records O arrival in the system          |
+| 2              | For each item type T in the order |
+|  3             |   The system updates T available quantity   |
+|  3             |   The system updates the Supplier list of T |
+|  4             | O is updated in the system in COMPLETED state |
+
+##### Scenario 2-4, Record order O testing process as failed
+
+| Scenario       | Record order O testing process as completed  |
+|:---------------|:--------------------------------------------:| 
+| Precondition   | Warehouse Manager WS exists and is logged in |
+|                | Order O exists and is in REJECTED state |
+| Post condition | The order O is sent back to the Supplier and is in COMPLETED state |
+| Step#          | Description   |
+|  2             | WS inserts the name of the transportation company for the return |
+|  2             | WS inserts the shipping code of the return |
+|  4             | O is updated in the system in COMPLETED state |
+
+
+### Use case 3, UC3- Fill orders
+
+| Actors Involved  | Supplier Manager |
+|:-----------------|:----------------:|
+| Precondition     | Supplier Manager SM exists and is logged in |
+| Post condition   |  |
+| Nominal Scenario | Display the list of requested orders |
+| Variants         | SM fills an order |
+| Exception        | / |
+
+##### Scenario 3-1, Display the list of requested orders 
+
+| Scenario       | Display the list of orders in the staging area |
+|:---------------|:------------------------------:| 
+| Precondition   | Supplier Manager SM exists and is logged in |
+| Post condition | The list of all orders O is displayed, sorted by arrival date (default) |
+| Step#          | Description  |
+| 1              | SM changes sort criteria |
+| 2              | System displays orders sorted by custom criteria  |
+
+##### Scenario 3-2, Fill an order
+
+| Scenario       | Fill an order  |
+|:---------------|:--------------------------------------------:| 
+| Precondition   | Supplier Manager SM exists and is logged in |
+|                | Order O exists and is in REJECTED state |
+| Post condition | The order O is shipped and is in SHIPPED state |
+| Step#          | Description   |
+|  2             | SM inserts the name of transportation company used for filling the order |
+|  2             | SM inserts the shipping code of the the order |
+|  4             | O is updated in the system in SHIPPED state |
+
+---
+
+### Use case 4, UC4- Manage warehouse
+
+| Actors Involved  | Warhouse Manager |
+|:-----------------|:----------------:|
+| Precondition     | Warehouse Manager WM exists and is logged in |
+| Post condition   |  |
+| Nominal Scenario | WM modifies an item type location |
+| Variants         | IT exists already, SupplierManager modifies its fields           |
+| Exception        | IT is assigned to an occupied location                           |
+
+##### Scenario 4-1
+
+| Scenario       | Modify item type location |
+|:---------------|:-------------:| 
+| Precondition   | Warehouse Manager WM exists and is logged in |
+|                | Item type X exists |
+|                | Location L is free |
+| Post condition | X.location = L |
+| Step#          | Description  |
+| 1              | WM searches X via name |
+| 2              | WM selects X's record |
+| 3              | WM selects a new product location |
+
+---
+
+### Use case 5, UC5 - Manage quality tests
+
+| Actors Involved  | Quality Office Manager |
+|:-----------------|:-------------:|
+| Precondition     | Quality Office Manager QOM exists and is logged in |
+| Post condition   |  |
+| Nominal Scenario | QOM add a new test T in the system |
+| Variants         | T already exists, QOM modifies its fields |
+|                  | QOM deletes an existing test |
+
+##### Scenario 5-1, Create test
+
+| Scenario       |  Create test |
+|:---------------|:------------------------------:| 
+| Precondition   | Quality Office Manager QOM exists and is logged in |
+| Post condition | A new test T is registered in the system |
+| Step#          | Description  |
+| 1              | QOM opens the list of all the existing tests |
+| 1              | QOM selects the "Add a new test" button |
+| 2              | QOM creates a new test T |
+| 2              | QOM inserts the name of T |
+| 6              | QOM inserts the description of T |
+| 4              | T is recorded in the system |
+
+##### Scenario 5-2. Delete test
+
+| Scenario       |  Delete test |
+|:---------------|:------------------------------:| 
+| Precondition   | Admin A exists and is logged in |
+| Post condition | The test T is deleted |
+| Step#          | Description  |
+| 1              | QOM opens the list of all the existing tests |
+| 1              | QOM select one test T in particular |
+| 3              | QOM deletes T |
+| 3              | T is deleted from the system |
+
+---
+
+### Use case 6, UC6 - Manage orders quality
+
+| Actors Involved  | Quality Office Manager |
+|:-----------------|:-------------:|
+| Precondition     | Quality Office Manager QOM exists and is logged in |
+| Post condition   |  |
+| Nominal Scenario | Add a test to an item I |
+| Variants         | Display the list of orders in the staging area |
+|                  | Display the list of items in a order |
+|                  | Remove a test from an item I |
+|                  | Report the result of a test |
+|                  | Mark an item as tested |
+|                  | Ignore an item |
+|                  | Ignore an order |
+
+##### Scenario 6-1 Display the list of orders in the staging area
+
+| Scenario       | Display the list of orders in the staging area |
+|:---------------|:------------------------------:| 
+| Precondition   | Quality Office Manager QOM exists and is logged in |
+| Post condition | The list of all orders O is displayed, sorted by arrival date (default) |
+| Step#          | Description  |
+| 1              | QOM changes sort criteria |
+| 2              | System displays products sorted by custom criteria  |
+
+##### Scenario 6-2 Display the list of items in a order
+
+| Scenario       | Display the list of orders in the staging area |
+|:---------------|:------------------------------:| 
+| Precondition   | Quality Office Manager QOM exists and is logged in |
+| Post condition | The list of all items in O is displayed, sorted by name (default) |
+| Step#          | Description |
+| 1              | QOM select an order O from the list |
+
+
+##### Scenario 6-3 Add a test to an item
+
+| Scenario       | Add a test to the item I |
+|:---------------|:------------------------------:| 
+| Precondition   | Quality Office Manager QOM exists and is logged in |
+|                | An order O has been selected |
+| Post condition | The item I must be tested with T |
+| Step#          | Description |
+| 1              | QOM selects an item I from O |  
+| 1              | QOM selects a test T from the list of all tests |  
+| 1              | QOM adds T to the list of tests to be performed on I | 
+
+##### Scenario 6-4 Remove a test from an item
+
+| Scenario       | Remove a test from an item |
+|:---------------|:------------------------------:| 
+| Precondition   | Quality Office Manager QOM exists and is logged in |
+|                | An order O has been selected |
+| Post condition | T is removed from the list of tests of the item I |
+| Step#          | Description |
+| 1              | QOM selects an item I from O |  
+| 1              | QOM selects a test T from the list of the tests of I |  
+| 1              | QOM removes the test |
+
+##### Scenario 6-5 Report the result of a test
+
+| Scenario       | Report the result of a test |
+|:---------------|:------------------------------:| 
+| Precondition   | Quality Office Manager QOM exists and is logged in |
+| Post condition | The result of T is set |
+| Step#          | Description |
+| 1              | QOM selects T from the list of tests of an item |  
+| 2              | QOM select the result of the test, which can be PASSED or NOT PASSED |
+| 3              | The state of T is updated accordingly in the system |
+
+##### Scenario 6-6 Report the result of an order
+
+| Scenario       | Report the result of an order |
+|:---------------|:------------------------------:| 
+| Precondition   | Quality Office Manager QOM exists and is logged in |
+| Post condition | The result of O is set |
+| Step#          | Description |
+| 1              | QOM selects O from the list of orders |  
+| 2              | QOM select the final result of O, which can be TESTED or TESTS NOT PASSED |
+| 3              | The state of O is updated accordingly in the system |
+
+##### Scenario 6-7 Ignore an order
+
+| Scenario       | Report the result of an order |
+|:---------------|:------------------------------:| 
+| Precondition   | Quality Office Manager QOM exists and is logged in |
+| Post condition | The result of O is set |
+| Step#          | Description |
+| 1              | QOM selects O from the list of orders |  
+| 2              | QOM clicks on the "Ignore order" button |
+| 3              | O is updated in the system in IGNORED state |
+
+---
+
+### Use case 7, UC7 - Manage internal orders
+
+| Actors Involved  | Organizational Unit Manager, Warehouse Manager |
+|:-----------------|:-------------:|
+| Precondition     | Organizational Unit Manager OUM exists and is logged in  |
+| Post condition   |  |
+| Nominal Scenario | OUM creates a new internal order IO with a list of item type ITs from the Warehouse. OUM sends the internal order and, when it arrives to the warehouse, WM records order arrival.  |
+| Variants         | / |
+
+##### Scenario 7-1
+
+| Scenario       | Create user and define rights |
+|:---------------|:------------------------------:| 
+| Precondition   | Admin A exists and is logged in |
+| Post condition | Account X is created |
+| Step#          | Description  |
+| 1              | A defines the credentials of the new Account X |  
+| 2              | A selects the access rights for the new account X |
+| 3              | C confirms the inserted data |
+
+# TODO
+
+---
+
+### Use case 8, UC8 - Manage users and rights
+
+| Actors Involved  | Administrator |
+|:-----------------|:-------------:|
+| Precondition     | Administrator A logged in |
+| Post condition   |  |
+| Nominal Scenario | A defines a new user and its access rights  |
+| Variants         | A modifies fields or access rights of an existing user |
+
+##### Scenario 8-1, Create user and define rights
+
+| Scenario       |  Create user and define rights |
+|:---------------|:------------------------------:| 
+| Precondition   | Admin A exists and is logged in |
+| Post condition | Account X is created |
+| Step#          | Description  |
+| 1              | A defines the credentials of the new Account X |  
+| 2              | A selects the access rights for the new account X |
+| 3              | C confirms the inserted data |
+
+##### Scenario 8-2, Delete user
+
+| Scenario       |  Delete user |
+|:---------------|:-------------:| 
+| Precondition   | Admin A exists and is logged in |
+|                | Account X exists |
+| Post condition | Account X deleted |
+| Step#          | Description  |
+| 1              | A selects account X  |
+| 2              | X deleted from the system |
+
+##### Scenario 8-3, Modify user rights
+
+| Scenario       |  Modify user rights |
+|:---------------|:-------------:| 
+| Precondition   | Admin A exists and is logged in |
+|                | Account X exists |
+| Post condition | X's rights updated |
+| Step#          | Description  |
+| 1              | A selects account X  |
+| 2              | A selects the access rights for X |
+| 3              | A confirms the inserted data |
+
+---
+
+### Use case 9, UC9 - Manage add item type requests
+
+| Actors Involved  | Administrator |
+|:-----------------|:-------------:|
+| Precondition     | Administrator A logged in |
+| Precondition     | |
+| Post condition   | A new item type IT is added to the system |
+| Nominal Scenario | A accepts the request  |
+| Variants         | A reject the request |
+
+##### Scenario 9-1, Accept an ITR
+
+| Scenario       | Accept an ITR |
+|:---------------|:-------------:| 
+| Precondition   | Admin A exists and is logged in |
+|                | An Item Type Request ITR is in state OPEN |
+| Post condition | ITR state is ACCEPTED and a IT is added to the system |
+| Step#          | Description  |
+| 1              | A accepts ITR |
+| 2              | A create a new IT |
+| 3              | IT is recorded in the system |
+| 3              | ITR is updated in the system in ACCEPTED state |
+
+##### Scenario 9-2, Reject an ITR
+
+| Scenario       | Reject an ITR |
+|:---------------|:-------------:| 
+| Precondition   | Admin A exists and is logged in |
+|                | An Item Type Request ITR is in state OPEN |
+| Post condition | ITR state is REJECTED |
+| Step#          | Description  |
+| 1              | A rejects an ITR |
+| 3              | ITR is updated in the system in REJECTED state |
+
+---
+
+### Use case 10, UC10 - Authenticate, authorize
+
+| Actors Involved  | Administrator, Warehouse Manager, Supplier Manager, Quality |
+|:-----------------|:------------------------------------:|
+| Precondition     |                                    |
+| Post condition   |                                    |
+| Nominal Scenario | Login: user enters credentials, system checks credentials, user is authenticated |
+| Variants         | Logout                                                                           |
+| Exceptions       | Login, credentials wrong, user not authenticated |
+
+
+##### Scenario 10-1, Login
+
+| Scenario       |  Login |
+|:---------------|:-------------:| 
+| Precondition   | Account for User U existing  |
+| Post condition | U logged in  |
+| Step#          | Description  |
+|  1             | User inserts his username |
+|  2             | User inserts his password |
+|  3             | User logged in, system shows the functionalities offered by the access priviledges of  U |
+
+##### Scenario 10-2, Logout
+
+| Scenario       |  Logout |
+|:---------------|:-------------:| 
+| Precondition   | U logged-in  |
+| Post condition | U logged-out  |
+| Step#          | Description  |
+| 1              | Employee logs out |
+| 2              | The system shows the login/sign in page | 
 
 
 # Glossary
