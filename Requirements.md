@@ -76,17 +76,16 @@ EZWH (EaSy WareHouse) is a software application to support the management of a w
 | Warehouse Manager | GUI | M&K |
 | Supplier Manager | GUI | M&K |
 | Administrator | GUI | M&K |
-| Quality Office | GUI | M&K |
+| Quality Office Manager      | GUI                 | M&K                |
 | Organizational Unit Manager | GUI | M&K |
-| Warehouse Workers | GUI | Tablet |
 | Payment Service | Internet Connection | API |
 | Cloud Service | Internet Connection | API |
 | Transportation Service | Internet Connection | M&K |
 
 # Stories and personas
-Mario, 30, is the manager of a big company's warehouse, handling hundresds of items per day. He has always managed the position of the goods by himself, leading to some management problems during the years. Also the re-fill process is handled by him, directly calling to different suppliers asking for availabilities of items. He would really like to use an application which can automatize this entire handling process. 
+Barbara, 30, is the manager of a big company's warehouse, handling hundresds of items per day. He has always managed the position of the goods by himself, leading to some management problems during the years. Also the re-fill process is handled by him, directly calling to different suppliers asking for availabilities of items. He would really like to use an application which can automatize this entire handling process. 
 
-Ercole, 45, has been recently hired as manager in a company that acts as a supplier for other companies or retailers, by selling mechanical components to them. In his previous job, he was used to a software which automatically checks if an order is satisfiable or not and contacts the transportation company. Now he has to manually check the availabilities for every item, and directly phone the transaportation company. He would like to emulate the same experience got in his previous mansion.
+Rita, 45, has been recently hired as manager in a company that acts as a supplier for other companies or retailers, by selling mechanical components to them. In his previous job, he was used to a software which automatically checks if an order is satisfiable or not and contacts the transportation company. Now he has to manually check the availabilities for every item, and directly phone the transaportation company. He would like to emulate the same experience got in his previous mansion.
 
 Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwide company. Anytime he needs an item from the central warehouse, he send an internal order request to the headquarter offices, which will be only later sent to the warehouse, resulting in a huge delay of time due to burocracy. He would really appreciate a software that manages a direct communication with the warehouse manager. 
 
@@ -94,38 +93,41 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 
 ## Functional Requirements
 
-| FR1     | Manage Orders                                              |
-| FR1.1   | Manage External orders                                     |
-| FR1.1.1 | Display the Supplier's list                                |
-| FR1.1.2 | Show all the items in the catalogue of a specific supplier |
-| FR1.1.3 | Place new external order                                   |
-| FR1.1.4 | Cancel the external order                                  |
-| FR1.1.5 | Add an item to the external order                          |
-| FR1.1.6 | Remove an item from the external order                     |
-| FR1.1.7 | Display an external order                                  |
-| FR1.2   | Manage Internal order                                      |
-| FR1.2.1 | Display the list of items in the Warehouse                 |
-| FR1.2.2 | Place a new internal order                                 |
-| FR1.2.3 | Cancel an interal order                                    |
-| FR1.2.4 | Add an item to the interal order                           |
-| FR1.2.5 | Remove an item to the interal order                        |
-| FR1.2.6 | Display an interal order                                   |
-| FR1.2.7 | Manage the status of the order                             |
-| FR1.2.8 | Manage transportation method                               |
-
-| FR2   | Manage Warehouse                                  |
-| FR2.1 | Track the position of every item                  |
-| FR2.2 | Update quantity of an item                        |
-| FR2.3 | Track remaining free space for every item         |
-| FR2.4 | Add an item                                       |
-| FR2.5 | Remove an item                                    |
-
-| FR3   | Manage Account      |
-| FR3.1 | Add account         |
-| FR3.2 | Remove account      |
-| FR3.3 | Update account      |
-| FR3.4 | Modify privileges   |
-
+| FR      | Description                                                        |
+| :------ | :----------------------------------------------------------------- |
+| FR1     | Manage Orders                                                      |
+| FR1.1   | Manage External orders                                             |
+| FR1.1.1 | Display the Supplier's list                                        |
+| FR1.1.2 | Show all the items in the catalogue of a specific supplier         |
+| FR1.1.3 | Place new external order                                           |
+| FR1.1.4 | Cancel the external order                                          |
+| FR1.1.5 | Add an item to the external order                                  |
+| FR1.1.6 | Remove an item from the external order                             |
+| FR1.1.8 | Display an external order                                          |
+| FR1.2   | Manage Internal order                                              |
+| FR1.2.1 | Display the list of items in the Warehouse                         |
+| FR1.2.2 | Place a new internal order                                         |
+| FR1.2.3 | Cancel an interal order                                            |
+| FR1.2.4 | Add an item to the interal order                                   |
+| FR1.2.5 | Remove an item to the interal order                                |
+| FR1.2.6 | Display an interal order                                           |
+| FR1.2.7 | Manage the status of the order                                     |
+| FR1.2.8 | Manage transportation method                                       |
+| FR2     | Manage Warehouse                                                   |
+| FR2.1   | Track the position of every item                                   |
+| FR2.2   | Update quantity of an item                                         |
+| FR2.3   | Track remaining free space for every item                          |
+| FR2.4   | Manage Wraehouse catalogue                                         |
+| FR2.4.1 | Add an item                                                        |
+| FR2.4.2 | Remove an item                                                     |
+| FR2.4.3 | Search an item                                                     |
+| FR3     | Manage Warehouse Account from Administrator                        |
+| FR3.1   | Add account                                                        |
+| FR3.2   | Remove account                                                     |
+| FR3.3   | Update account                                                     |
+| FR3.4   | Modify privileges                                                  |
+| FR3.5   | List of the user                                                   |
+| FR3.6   | Search a user                                                      |
 | FR4     | Manage Quality                                                     |
 | FR4.1   | Manage a test                                                      |
 | FR4.1.1 | Add a test with its description                                    |
@@ -139,16 +141,25 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 | FR4.2.5 | Report the result of a test                                        |
 | FR4.2.5 | Report the result of an order                                      |
 | FR4.2.7 | Ignore an order                                                    |
-
-| FR5   | Manage Supplier Catalogue   |
-| FR5.1 | Add an item                 |
-| FR5.2 | Remove an item              |
-| FR5.3 | Show items in the catalogue |
-| FR5.4 | Update an item's attribute  |
-
-| FR6   | Manage Authentication |
-| FR6.1 | Login                 |
-| FR6.1 | Logout                |
+| FR5     | Manage Supplier Catalogue                                          |
+| FR5.1   | Add an item                                                        |
+| FR5.2   | Remove an item                                                     |
+| FR5.3   | Show items in the catalogue                                        |
+| FR5.3   | Filter items in the catalogue                                      |
+| FR5.4   | Update an item's attribute                                         |
+| FR6     | Manage Authentication                                              |
+| FR6.1   | Login                                                              |
+| FR6.1   | Logout                                                             |
+| FR6.3   | Restore password                                                   |
+| FR7     | Manage Payment                                                     |
+| FR7.1   | Manage Payment for internal order                                  |
+| FR7.2   | Manage Payment for external order                                  |
+| FR8     | Export data or analytics                                           |
+| FR8.1   | Export data or analytics from inventory                            |
+| FR8.2   | Export data or analytics from orders                               |
+| FR8.3   | Export data or analytics from clients                              |
+| FR9     | Manage return items                                                |
+| FR9.1   | Send the items of an order back                                    |
 
 ## Non Functional Requirements
 
@@ -172,55 +183,120 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 
 ## Manage Catalogue
 
-### Use case 1, UC1 - Manage catalogue
+### Use case 1, UC1 - Manage Supplier catalogue
 
 | Actors Involved  | Supplier Manager |
 |:-----------------|:----------------:|
 | Precondition     |  |
 | Post condition   |  |
-| Nominal Scenario | SupplierManager creates a new item type IT populating its fields |
-| Variants         | IT exists already, SupplierManager modifies its fields           |
-| Exception        | IT is assigned to an occupied location                           |
+| Nominal Scenario | SupplierManager creates a new item descriptor IT populating its fields |
+| Variants         | IT exists already, SupplierManager modifies its fields                 |
+| Exception        | New price < 0 |
+|                  | The Item to be added is not in the Main Catalogue |
 
-##### Scenario 1-1, Create a new item type request
+##### Scenario 1-1, Create a new item descriptor request
 
-| Scenario       | Create a new item type request |
+| Scenario       | Create a new item descriptor request |
 |:---------------|:-------------------:| 
 | Precondition   | Supplier Manager SM exists and is logged in |
-| Post condition | Item Type Request ITR exists and is in OPEN state|
-|                | 
+| Post condition | Item Descriptor Request ITR exists and is in OPEN state and received by the administrator|
 | Step#          | Description  |
-| 1              | SM opens a new "Add item type" request |
-| 1              | SM inserts new item type description |
-| 2              | SM inserts new item type name |
-| 6              | SM confirms the entered data |
-| 4              | ITR is recorded in the system in OPEN state |
+| 1              | SM opens a new "Add item descriptor" request |
+| 2              | SM inserts new item descriptor name |
+| 3              | SM inserts new item descriptor characteristics |
+| 4              | SM confirms the entered data | 													//TODO: Peter
+| 5              | ITR is sent to the Administrator and recorded in the system in OPEN state |
 
-##### Scenario 1-2, Offer item type X 
+##### Scenario 1-2, Add item descriptor X in the catalogue 
 
-| Scenario        | Offer item type X |
-|:----------------|:-------------------:| 
-|  Precondition   | Supplier Manager SM exists and is logged in |
-|  Post condition | X into the catalogue C |
-| Step#           | Description  |
-|  1              | SM selects an item type in the list to be offered|
-|  3              | SM inserts new item price per unit |
-|  4              | SM inserts new item notes |
-|  6              | SM confirms the entered data |
+| Scenario       | Add item descriptor X in the catalogue |
+|:---------------|:-------------------:| 
+| Precondition   | Supplier Manager SM exists and is logged in |
+|                | MainCatalogue MC exists |
+| Post condition | X is added into the Supplier Catalogue SC along with is price |
+| Step#          | Description  |
+|  1             | SM selects an item descriptor X from MC |
+|  2             | SM inserts new item price per unit |
+|  3             | SM inserts new item notes |
+|  4             | SM confirms the entered data |
 
-##### Scenario 1-3
+##### Scenario 1-3, Add an item descriptor X not in the Main Catalogue 
 
-| Scenario       | Modify item type price per unit |
+| Scenario       | Add item descriptor X in the catalogue |
+|:---------------|:-------------------:| 
+| Precondition   | Supplier Manager SM exists and is logged in |
+|                | MainCatalogue MC exists |
+| Post condition | An error is generated |
+| Step#          | Description  |
+|  1             | SM selects an item descriptor X not from MC |
+|  2             | An error is generated |
+
+##### Scenario 1-4, Modify item descriptor's price per unit	
+
+| Scenario       | Modify item descriptor price per unit |
 |:---------------|:----------------------------------:| 
 | Precondition   | Supplier Manager SM exists and is logged in |
-|                | Item type X exists |
+|                | item descriptor X exists and is in SC |
 | Post condition | X.pricePerUnit = new Price |
+| Step#          | Description  |
+| 1              | SM searches X via ID or name |
+| 2              | SM selects X's record |
+| 3              | SM inserts a new price |
+| 4              | SM confirms the update |
+| 5              | X is updated |
+
+##### Scenario 1-5, Modify item descriptor's price with a negative amount
+
+| Scenario       | Modify item descriptor price per unit |
+|:---------------|:----------------------------------:| 
+| Precondition   | Supplier Manager SM exists and is logged in |
+|                | item descriptor X exists and is in SC |
+| Post condition | An error is generated |
+| Step#          | Description  |
+| 1              | SM searches X via ID or name |
+| 2              | SM selects X's record |
+| 3              | SM inserts a new price < 0 |
+| 4              | An error is generated |
+
+##### Scenario 1-6, Modify item descriptor's notes
+
+| Scenario       | Modify item descriptor price per unit |
+|:---------------|:----------------------------------:| 
+| Precondition   | Supplier Manager SM exists and is logged in |
+|                | item descriptor X exists |
+| Post condition | X.notes = new Notes |
 | Step#          | Description  |
 | 1              | SM searches X via name |
 | 2              | SM selects X's record |
-| 3              | SM inserts a new price > 0 |
+| 3              | SM inserts new notes |
 | 4              | SM confirms the update |
 | 5              | X is updated |
+
+##### Scenario 1-7, Filter Items' Desciptors
+
+| Scenario       | Filter Items' Desciptors |
+|:---------------|:----------------------------------:| 
+| Precondition   | Software shows all the products, sorted by ID |
+|                | item descriptor X exists in SC |
+| Post condition | The resultant products are displayed |
+| Step#          | Description  |
+| 1              | User filters the products by writing in the search bar (ID,name..) and/or using filters |
+| 2              | System displays products filtered by custom criteria |
+| 3              | SM inserts new notes |
+| 4              | SM confirms the update |
+| 5              | X is updated |
+
+#### Scenario 1-8, Delete Item X from SupplierCatalogue SC
+
+| Scenario       | Delete Item X from SupplierCatalogue SC |
+|:---------------|:----------------------------------:| 
+| Precondition   | item descriptor X exists in SC |
+| Post condition | Item is successfully deleted |
+| Step#          | Description  |
+| 1              | Item is found by writing in the search bar (ID,name..) and/or using filters |
+| 2              | SM deletes the item|
+| 3              | SM confirms the deletion of the item|
+| 4              | Item is successfully deleted |
 
 
 ## Order Management
@@ -232,11 +308,11 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 | Precondition     | Warehouse Manager WM has an account |
 |                  | Warehouse Manager WM is authenticated |
 | Post condition   | Order O has been issued |
-| Nominal Scenario | WM creates a new order O with a list of item type ITs. WM sends order to a selected supplier and pays the price visible in the supplier's catalogue. When order arrives to the warehouse, WM records order arrival. |
-| Variants         | ... |
-| Exceptions       | Not enough money in balance to send order |
-|                  | An item I has no location assigned, because there's no space |
-|                  | The item types in O comes form different Suppliers |
+| Nominal Scenario | WM creates a new order O with a list of item descriptor ITs that are chosen from a specific Supplier Catalogue SC. WM sends order to a selected supplier and pays the price visible in the supplier's catalogue through a pay button. When order arrives to the warehouse, WM records order arrival. |
+| Variants         | Modify and Delete an order O |
+| Exceptions       | Payment failed to go through |
+|                  | The item has no available position(available shelf) to be put in upon arrival|
+|                  | The item descriptor in O comes form different Suppliers |
 
 ##### Scenario 2-1, Nominal Scenario
 
@@ -246,7 +322,7 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 | Post condition | Order O exists and is in ISSUED state        |
 | Step#          | Description  |
 | 1              | WS creates order O |
-| 2              | For each item type T to be added |
+| 2              | For each item descriptor T to be added |
 | 2              |   WS adds T to O |
 | 2              |   WS fills quantity of T to be ordered |
 | 2              |   WS picks the location L |
@@ -274,7 +350,7 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 | Step#          | Description   |
 |  1             | O arrives to the warehouse             |
 |  2             | WS records O arrival in the system          |
-| 2              | For each item type T in the order |
+| 2              | For each item descriptor T in the order |
 |  3             |   The system updates T available quantity   |
 |  3             |   The system updates the Supplier list of T |
 |  4             | O is updated in the system in COMPLETED state |
@@ -332,16 +408,16 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 |:-----------------|:----------------:|
 | Precondition     | Warehouse Manager WM exists and is logged in |
 | Post condition   |  |
-| Nominal Scenario | WM modifies an item type location |
+| Nominal Scenario | WM modifies an item descriptor location |
 | Variants         | IT exists already, SupplierManager modifies its fields           |
 | Exception        | IT is assigned to an occupied location                           |
 
 ##### Scenario 4-1
 
-| Scenario       | Modify item type location |
+| Scenario       | Modify item descriptor location |
 |:---------------|:-------------:| 
 | Precondition   | Warehouse Manager WM exists and is logged in |
-|                | Item type X exists |
+|                | item descriptor X exists |
 |                | Location L is free |
 | Post condition | X.location = L |
 | Step#          | Description  |
@@ -489,7 +565,7 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 |:-----------------|:-------------:|
 | Precondition     | Organizational Unit Manager OUM exists and is logged in  |
 | Post condition   |  |
-| Nominal Scenario | OUM creates a new internal order IO with a list of item type ITs from the Warehouse. OUM sends the internal order and, when it arrives to the warehouse, WM records order arrival.  |
+| Nominal Scenario | OUM creates a new internal order IO with a list of item descriptor ITs from the Warehouse. OUM sends the internal order and, when it arrives to the warehouse, WM records order arrival.  |
 | Variants         | / |
 
 ##### Scenario 7-1
@@ -552,13 +628,13 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 
 ---
 
-### Use case 9, UC9 - Manage add item type requests
+### Use case 9, UC9 - Manage add item descriptor requests
 
 | Actors Involved  | Administrator |
 |:-----------------|:-------------:|
 | Precondition     | Administrator A logged in |
 | Precondition     | |
-| Post condition   | A new item type IT is added to the system |
+| Post condition   | A new item descriptor IT is added to the system |
 | Nominal Scenario | A accepts the request  |
 | Variants         | A reject the request |
 
@@ -567,7 +643,7 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 | Scenario       | Accept an ITR |
 |:---------------|:-------------:| 
 | Precondition   | Admin A exists and is logged in |
-|                | An Item Type Request ITR is in state OPEN |
+|                | An item descriptor Request ITR is in state OPEN |
 | Post condition | ITR state is ACCEPTED and a IT is added to the system |
 | Step#          | Description  |
 | 1              | A accepts ITR |
@@ -580,7 +656,7 @@ Ezio, 35, is the chief of one of the Organizational Unit that composes a worldwi
 | Scenario       | Reject an ITR |
 |:---------------|:-------------:| 
 | Precondition   | Admin A exists and is logged in |
-|                | An Item Type Request ITR is in state OPEN |
+|                | An item descriptor Request ITR is in state OPEN |
 | Post condition | ITR state is REJECTED |
 | Step#          | Description  |
 | 1              | A rejects an ITR |
